@@ -5,7 +5,7 @@ GoRouter router() => GoRouter(
       routes: [
         GoRoute(
           path: '/',
-          builder: (context, state) => const Scaffold(),
+          builder: (context, state) => const SplashScreen(),
         ),
       ],
       redirect: (context, state) {
@@ -15,10 +15,5 @@ GoRouter router() => GoRouter(
 
 class Routes {
   static const splashScreen = '/';
-  static const loginScreen = '/login';
-  static const registerScreen = '/register';
-  static const otpScreen = '/otp';
-  static const languageScreen = '/language';
-  static const homeScreen = '/home';
   static const notFoundScreen = '/notFound';
 }

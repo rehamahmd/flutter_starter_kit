@@ -34,24 +34,10 @@ class AnimatedLogo extends HookWidget {
       duration: const Duration(seconds: 2),
     )..repeat(reverse: false);
 
-    final opacityAnimation = useAnimation(Tween<double>(begin: 0.5, end: 1.0)
-        .animate(CurvedAnimation(parent: animationController, curve: Curves.easeIn)));
-
-    final scaleAnimation = useAnimation(Tween<double>(begin: 0.5, end: 1.0)
-        .animate(CurvedAnimation(parent: animationController, curve: Curves.easeInOut)));
-
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Opacity(
-            opacity: opacityAnimation,
-            child: Transform.scale(
-              scale: scaleAnimation,
-              child: Image.asset(AppIcons.logoPng, width: 230),
-            ),
-          ),
-          const SizedBox(height: 10),
           ScaleTransition(
             scale: animationController,
             child: Container(

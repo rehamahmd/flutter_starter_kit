@@ -64,16 +64,13 @@ android {
             dimension "version"
             applicationIdSuffix ".staging"
             versionNameSuffix "-staging"
-            resValue "string", "app_name", "AppName_Staging"
-
-            
+            resValue "string", "app_name", "AppName_Staging"    
         }
         production {
             applicationIdSuffix ""
             versionNameSuffix ""
             dimension "version"
             resValue "string", "app_name", "AppName"
-
         }
     }
 }
