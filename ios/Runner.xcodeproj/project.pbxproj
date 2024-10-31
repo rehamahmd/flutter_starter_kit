@@ -367,7 +367,7 @@
 		9740EEB61CF901F6004384FC /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
@@ -496,13 +496,12 @@
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = BY53VUSL3V;
 				ENABLE_BITCODE = NO;
+				FLUTTER_TARGET = lib/main/dev.dart;
 				INFOPLIST_FILE = Runner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				NEW_SETTING = "";
-				NEW_SETTING1 = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.flutterStarterKit.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
@@ -592,13 +591,12 @@
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = BY53VUSL3V;
 				ENABLE_BITCODE = NO;
+				FLUTTER_TARGET = lib/main/staging.dart;
 				INFOPLIST_FILE = Runner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				NEW_SETTING = "";
-				NEW_SETTING1 = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.flutterStarterKit.staging;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
@@ -703,13 +701,13 @@
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = BY53VUSL3V;
 				ENABLE_BITCODE = NO;
+				FLUTTER_TARGET = lib/main/production.dart;
 				INFOPLIST_FILE = Runner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				NEW_SETTING = "";
-				NEW_SETTING1 = "";
+
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.flutterStarterKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
