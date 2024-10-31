@@ -53,14 +53,3 @@ flutter:
   uses-material-design: true
 
 
-flutter_launcher_icons:
-  android: true
-  ios: true
-  remove_alpha_ios: true
-  flavors:
-    dev:
-      image_path: "assets/images/logo_dev.png"
-    staging:
-      image_path: "assets/images/logo_staging.png"  
-    production:
-      image_path: "assets/images/logo_prod.png"
