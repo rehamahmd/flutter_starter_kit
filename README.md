@@ -122,20 +122,24 @@ The feature directory organizes code related to a specific part of the app. Here
 
 # Get Started
 - **Run Development Environment**:
-```dart
+```shell
   flutter run --flavor dev -t lib/main/dev.dart
 ```
 - **Run Staging Environment**:
-```dart
+```shell
   flutter run --flavor staging -t lib/main/staging.dart
 ```
 - **Run Production Environment**:
-```dart
+```shell
   flutter run --flavor production -t lib/main/production.dart
 ```
 - **DI Generator**:
-```dart
+```shell
 flutter packages pub run build_runner build
+```
+- **Icons Generator
+```shell
+dart run flutter_launcher_icons:main -f flutter_launcher_icons*
 ```
 
 <!-- dart run flutter_launcher_icons:main -f flutter_launcher_icons* -->
