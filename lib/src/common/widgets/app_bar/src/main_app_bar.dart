@@ -2,7 +2,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_starter_kit/app/imports.dart';
 
 class MainAppBarProps {
-  final String screenTitle;
+  final String? screenTitle;
   final Widget? titleWidget;
 
   final double? appBarHeight;
@@ -31,7 +31,8 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
   final MainAppBarProps props;
   const MainAppBar({super.key, required this.props});
   @override
-  Size get preferredSize => Size.fromHeight(props.appBarHeight != null ? props.appBarHeight! : 90.h);
+  Size get preferredSize =>
+      Size.fromHeight(props.appBarHeight != null ? props.appBarHeight! : 90.h);
   _back(BuildContext context) {
     Navigation.to(context, navigationType: NavigateType.back);
   }
@@ -62,25 +63,24 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
                     Container(
                       decoration: BoxDecoration(
                         color: AppColors.primaryColor,
-                        borderRadius: BorderRadius.circular(30.h),
+                        borderRadius: BorderRadius.circular(10.h),
                       ),
                       padding: EdgeInsets.all(10.h),
                       child: Padding(
                         padding: EdgeInsetsDirectional.only(start: 4.w),
                         child: SizedBox(
-                          // width: 22.h,
                           height: 22.h,
                           child: Icon(
-                            Icons.arrow_back_ios,
+                            Icons.arrow_back,
                             color: AppColors.whiteForeground,
-                            size: 20.h,
+                            size: 22.h,
                           ),
                         ),
                       ),
                     ),
                 AppSpace.horizontal(20),
                 AppText.primary(
-                  text: props.screenTitle,
+                  text: props.screenTitle ?? '',
                   appTextStyle: AppTextStyle.regular28,
                 )
               ],

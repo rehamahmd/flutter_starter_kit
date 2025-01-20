@@ -1,16 +1,16 @@
+import 'dart:ui';
+
 import '../../enums/src/font_family_enum.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 extension FontFamilyEnumExtension on FontFamilyEnum {
   String get fontFamilyE {
-    final bool isRTL = true;
+    final bool isRTL = false;
     switch (this) {
       case FontFamilyEnum.primaryFont:
-        return isRTL ? 'Almarai' : 'Almarai';
+        return isRTL ? 'Almarai' : 'cursive';
       case FontFamilyEnum.secondaryFont:
-        return isRTL ? 'Helvetica' : 'Almarai';
-
-      default:
-        return 'Almarai';
+        return isRTL ? 'Helvetica' : 'cursive';
     }
   }
 }

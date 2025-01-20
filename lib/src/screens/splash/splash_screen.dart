@@ -11,7 +11,17 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) {});
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Future.delayed(const Duration(seconds: 2), () {
+        if (!mounted) return;
+        Navigation.to(
+          context,
+          screenName: Routes.homeScreen,
+          navigationType: NavigateType.goNamed,
+        );
+      });
+    });
   }
 
   @override
@@ -26,36 +36,28 @@ class AnimatedLogo extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
+    print("A");
     final animationController = useAnimationController(
-      duration: const Duration(seconds: 2),
-    )..repeat(reverse: false);
+      duration: const Duration(seconds: 3),
+      lowerBound: .1,
+    )..repeat(reverse: true);
 
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          ScaleTransition(
-            scale: animationController,
-            child: Container(
-              width: 250,
-              height: 75,
-              decoration: BoxDecoration(
-                gradient: const LinearGradient(
-                  colors: [Color(0xFF8F7DC2), Color(0xFF03B7F2)],
-                  begin: Alignment.centerLeft,
-                  end: Alignment.centerRight,
-                ),
-                borderRadius: BorderRadius.circular(40),
-              ),
-              child: Center(
-                child: Text(
-                  'Splash',
-                  style: AppTextStyle.regular22White.primaryStyle,
-                ),
-              ),
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            FadeTransition(
+              opacity: animationController,
+              child: Image.asset(AppFlavors.logoPath),
             ),
-          ),
-        ],
+            AppSpace.vertical(20),
+            AppText.primary(
+              text: 'Weather App',
+              appTextStyle: AppTextStyle.bold36Royal,
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -36,8 +36,8 @@ class FullScreenLoading extends ModalRoute {
   }
 
   @override
-  Widget buildTransitions(
-      BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation, Widget child) {
+  Widget buildTransitions(BuildContext context, Animation<double> animation,
+      Animation<double> secondaryAnimation, Widget child) {
     return FadeTransition(
         opacity: animation,
         child: ScaleTransition(
@@ -53,9 +53,7 @@ class FullScreenLoading extends ModalRoute {
                   strokeWidth: 4.w,
                 ),
               ),
-              SvgIcon(
-                props: SvgIconProps(svgIcon: AppIcons.pawPurpleSvg, width: 65.w),
-              )
+              CircularProgressIndicator() // TODO
             ],
           ),
         ));

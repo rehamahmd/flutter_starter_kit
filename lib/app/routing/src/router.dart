@@ -7,6 +7,11 @@ GoRouter router() => GoRouter(
           path: '/',
           builder: (context, state) => const SplashScreen(),
         ),
+        GoRoute(
+          path: Routes.homeScreen,
+          name: Routes.homeScreen,
+          builder: (context, state) => const HomeScreen(),
+        ),
       ],
       redirect: (context, state) {
         return null;
@@ -16,4 +21,5 @@ GoRouter router() => GoRouter(
 class Routes {
   static const splashScreen = '/';
   static const notFoundScreen = '/notFound';
+  static const homeScreen = '/homeScreen';
 }

@@ -20,9 +20,7 @@ class LoadingWidget extends StatelessWidget {
                   strokeWidth: 4.w,
                 ),
               ),
-              SvgIcon(
-                props: SvgIconProps(svgIcon: AppIcons.pawPurpleSvg, width: 40.w),
-              )
+              CircularProgressIndicator() // TODO
             ],
           ),
           AppSpace.vertical(20),

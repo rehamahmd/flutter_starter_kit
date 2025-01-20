@@ -1,4 +1,3 @@
-import 'package:flutter_starter_kit/app/routing/src/router.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_starter_kit/app/imports.dart';
 
