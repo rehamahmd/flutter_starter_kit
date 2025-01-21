@@ -36,10 +36,9 @@ class AnimatedLogo extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("A");
     final animationController = useAnimationController(
       duration: const Duration(seconds: 3),
-      lowerBound: .1,
+      lowerBound: .2,
     )..repeat(reverse: true);
 
     return Scaffold(
@@ -49,7 +48,12 @@ class AnimatedLogo extends HookWidget {
           children: [
             FadeTransition(
               opacity: animationController,
-              child: Image.asset(AppFlavors.logoPath),
+              child: ImageWidget(
+                props: ImageWidgetProps(
+                  image: AppFlavors.logoPath,
+                  width: 220.w,
+                ),
+              ),
             ),
             AppSpace.vertical(20),
             AppText.primary(

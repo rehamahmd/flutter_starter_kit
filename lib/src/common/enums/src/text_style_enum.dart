@@ -11,15 +11,28 @@ enum AppTextStyle {
   bold12Royal,
   bold12Black,
   bold12Grey,
+
+  bold14,
+  bold14Black,
   //! Bold [16]
 
   bold16Royal,
 
+  bold18,
+  bold18Black,
+
   //! Bold [20]
   bold20Royal,
 
+  //! Bold [20]
+  bold22White,
+
+  bold30,
+  bold30Royal,
+
   bold36,
   bold36Royal,
+  bold36White,
 
   //***** Regular **/
   //! Regular [10]
@@ -36,6 +49,7 @@ enum AppTextStyle {
 
   //! Regular [14]
   regular14Grey,
+  regular14White,
 
   //! Regular [16]
   regular16,
@@ -49,9 +63,11 @@ enum AppTextStyle {
   regular18Royal,
   regular18RoyalBlue,
   regular18Black,
+  regular18White,
 
   //! Regular [20]
   regular20Grey,
+  regular20Royal,
   //! Regular [22]
   regular22,
   regular22Royal,

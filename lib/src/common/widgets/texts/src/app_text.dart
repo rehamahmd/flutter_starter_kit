@@ -1,4 +1,5 @@
 // * Primary & Secondary based on FontFamily  * //
+
 import 'package:flutter_starter_kit/app/imports.dart';
 
 class AppText extends StatelessWidget {
@@ -12,20 +13,22 @@ class AppText extends StatelessWidget {
 
   factory AppText.primary({
     required String text,
-    AppTextStyle? appTextStyle,
+    final AppTextStyle? appTextStyle,
+    final double? lineHeight,
   }) {
     return AppText._(
       text,
-      textStyle: appTextStyle?.primaryStyle,
+      textStyle: appTextStyle?.primaryStyle?.copyWith(height: lineHeight),
     );
   }
   factory AppText.secondary({
     required String text,
-    AppTextStyle? appTextStyle,
+    final AppTextStyle? appTextStyle,
+    final double? lineHeight,
   }) {
     return AppText._(
       text,
-      textStyle: appTextStyle?.secondaryStyle,
+      textStyle: appTextStyle?.secondaryStyle?.copyWith(height: lineHeight),
     );
   }
   @override

@@ -21,17 +21,52 @@ class TextStyleImp {
       fontWeight: FontWeight.bold,
       color: Colors.grey,
     ),
-
+    AppTextStyle.bold14: TextStyle(
+      fontSize: 14.sp,
+      fontWeight: FontWeight.bold,
+    ),
+    AppTextStyle.bold14Black: TextStyle(
+      fontSize: 14.sp,
+      fontWeight: FontWeight.bold,
+      color: Colors.black,
+    ),
     AppTextStyle.bold16Royal: TextStyle(
       fontSize: 16.sp,
       fontWeight: FontWeight.bold,
       color: AppColors.primaryTextColor,
     ),
+
+    AppTextStyle.bold18: TextStyle(
+      fontSize: 18.sp,
+      fontWeight: FontWeight.bold,
+    ),
+    AppTextStyle.bold18Black: TextStyle(
+      fontSize: 18.sp,
+      fontWeight: FontWeight.bold,
+      color: Colors.black,
+    ),
+
     AppTextStyle.bold20Royal: TextStyle(
       fontSize: 20.sp,
       fontWeight: FontWeight.bold,
       color: AppColors.primaryTextColor,
     ),
+    AppTextStyle.bold22White: TextStyle(
+      fontSize: 22.sp,
+      fontWeight: FontWeight.bold,
+      color: AppColors.whiteForeground,
+    ),
+
+    AppTextStyle.bold30: TextStyle(
+      fontSize: 30.sp,
+      fontWeight: FontWeight.bold,
+    ),
+    AppTextStyle.bold30Royal: TextStyle(
+      fontSize: 30.sp,
+      fontWeight: FontWeight.bold,
+      color: AppColors.primaryTextColor,
+    ),
+
     AppTextStyle.bold36: TextStyle(
       fontSize: 36.sp,
       fontWeight: FontWeight.bold,
@@ -41,7 +76,11 @@ class TextStyleImp {
       fontWeight: FontWeight.bold,
       color: AppColors.primaryTextColor,
     ),
-
+    AppTextStyle.bold36White: TextStyle(
+      fontSize: 36.sp,
+      fontWeight: FontWeight.bold,
+      color: AppColors.whiteForeground,
+    ),
     // ** ---------- Regular
     AppTextStyle.regular10: TextStyle(
       fontSize: 10.sp,
@@ -66,6 +105,11 @@ class TextStyleImp {
       fontSize: 12.sp,
       fontWeight: FontWeight.normal,
     ),
+    AppTextStyle.regular12Black: TextStyle(
+      fontSize: 12.sp,
+      fontWeight: FontWeight.normal,
+      color: Colors.black,
+    ),
     AppTextStyle.regular12Grey: TextStyle(
       fontSize: 12.sp,
       fontWeight: FontWeight.normal,
@@ -75,6 +119,11 @@ class TextStyleImp {
       fontSize: 14.sp,
       fontWeight: FontWeight.normal,
       color: Colors.grey,
+    ),
+    AppTextStyle.regular14White: TextStyle(
+      fontSize: 14.sp,
+      fontWeight: FontWeight.normal,
+      color: Colors.white,
     ),
 
     AppTextStyle.regular16: TextStyle(
@@ -118,11 +167,20 @@ class TextStyleImp {
       fontWeight: FontWeight.normal,
       color: AppColors.secondaryColor,
     ),
-
+    AppTextStyle.regular18White: TextStyle(
+      fontSize: 18.sp,
+      fontWeight: FontWeight.normal,
+      color: AppColors.whiteForeground,
+    ),
     AppTextStyle.regular20Grey: TextStyle(
       fontSize: 20.sp,
       fontWeight: FontWeight.normal,
       color: AppColors.tertiaryTextColor,
+    ),
+    AppTextStyle.regular20Royal: TextStyle(
+      fontSize: 20.sp,
+      fontWeight: FontWeight.normal,
+      color: AppColors.primaryTextColor,
     ),
 
     AppTextStyle.regular22White: TextStyle(
@@ -139,6 +197,11 @@ class TextStyleImp {
       fontSize: 22.sp,
       fontWeight: FontWeight.normal,
       color: AppColors.tertiaryTextColor,
+    ),
+    AppTextStyle.regular22Black: TextStyle(
+      fontSize: 22.sp,
+      fontWeight: FontWeight.normal,
+      color: Colors.black,
     ),
 
     AppTextStyle.regular24: TextStyle(

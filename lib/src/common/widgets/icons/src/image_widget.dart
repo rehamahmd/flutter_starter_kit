@@ -5,26 +5,36 @@ class ImageWidgetProps {
   final double? width;
   final double? height;
   final Color? color;
+  final BorderRadius? borderRadius;
+  final BoxFit? boxFit;
+
   ImageWidgetProps({
     required this.image,
     this.height,
     this.width,
     this.color,
+    this.borderRadius,
+    this.boxFit = BoxFit.fill,
   });
 }
 
 class ImageWidget extends StatelessWidget {
   final ImageWidgetProps props;
+
   const ImageWidget({super.key, required this.props});
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: props.height,
-      width: props.width,
-      child: Image.asset(
-        props.image,
-        // color: props.color ?? Colors.white,
+    return ClipRRect(
+      borderRadius: props.borderRadius ?? BorderRadius.circular(0),
+      child: SizedBox(
+        height: props.height,
+        width: props.width,
+        child: Image.asset(
+          props.image,
+          fit: props.boxFit,
+          color: props.color,
+        ),
       ),
     );
   }
