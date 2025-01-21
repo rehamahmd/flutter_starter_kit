@@ -1,3 +1,8 @@
 {
-  "dart.flutterSdkPath": ".fvm/versions/3.24.0"
+  "editor.wordWrapColumn": 120,
+  "git.terminalGitEditor": true,
+  "terminal.integrated.suggest.enabled": true,
+  "terminal.integrated.drawBoldTextInBrightColors": false,
+ 
+  
 }

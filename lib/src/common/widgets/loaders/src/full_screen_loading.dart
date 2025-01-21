@@ -36,8 +36,8 @@ class FullScreenLoading extends ModalRoute {
   }
 
   @override
-  Widget buildTransitions(BuildContext context, Animation<double> animation,
-      Animation<double> secondaryAnimation, Widget child) {
+  Widget buildTransitions(
+      BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation, Widget child) {
     return FadeTransition(
         opacity: animation,
         child: ScaleTransition(

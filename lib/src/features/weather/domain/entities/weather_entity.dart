@@ -1,24 +1,4 @@
-class WeatherResponse {
-  final String cod;
-  final int message;
-  final int cnt;
-  final List<WeatherData> list;
-
-  WeatherResponse(
-      {required this.cod,
-      required this.message,
-      required this.cnt,
-      required this.list});
-
-  factory WeatherResponse.fromJson(Map<String, dynamic> json) {
-    return WeatherResponse(
-      cod: json['cod'],
-      message: json['message'],
-      cnt: json['cnt'],
-      list: (json['list'] as List).map((i) => WeatherData.fromJson(i)).toList(),
-    );
-  }
-}
+import 'dart:convert';
 
 class WeatherData {
   final int dt;
@@ -47,8 +27,7 @@ class WeatherData {
     return WeatherData(
       dt: json['dt'],
       main: Main.fromJson(json['main']),
-      weather:
-          (json['weather'] as List).map((i) => Weather.fromJson(i)).toList(),
+      weather: (json['weather'] as List).map((i) => Weather.fromJson(i)).toList(),
       clouds: Clouds.fromJson(json['clouds']),
       wind: Wind.fromJson(json['wind']),
       visibility: json['visibility'],
@@ -56,6 +35,28 @@ class WeatherData {
       sys: Sys.fromJson(json['sys']),
       dt_txt: json['dt_txt'],
     );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'dt': dt,
+      'main': main.toJson(),
+      'weather': weather.map((w) => w.toJson()).toList(),
+      'clouds': clouds.toJson(),
+      'wind': wind.toJson(),
+      'visibility': visibility,
+      'pop': pop,
+      'sys': sys.toJson(),
+      'dt_txt': dt_txt,
+    };
+  }
+
+  String toStringa() {
+    return jsonEncode(toJson());
+  }
+
+  static WeatherData fromString(String jsonString) {
+    return WeatherData.fromJson(jsonDecode(jsonString));
   }
 }
 
@@ -68,7 +69,6 @@ class Main {
   final int sea_level;
   final int grnd_level;
   final int humidity;
-  final double temp_kf;
 
   Main({
     required this.temp,
@@ -79,7 +79,6 @@ class Main {
     required this.sea_level,
     required this.grnd_level,
     required this.humidity,
-    required this.temp_kf,
   });
 
   factory Main.fromJson(Map<String, dynamic> json) {
@@ -92,8 +91,20 @@ class Main {
       sea_level: json['sea_level'],
       grnd_level: json['grnd_level'],
       humidity: json['humidity'],
-      temp_kf: json['temp_kf'],
     );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'temp': temp,
+      'feels_like': feels_like,
+      'temp_min': temp_min,
+      'temp_max': temp_max,
+      'pressure': pressure,
+      'sea_level': sea_level,
+      'grnd_level': grnd_level,
+      'humidity': humidity,
+    };
   }
 }
 
@@ -118,6 +129,15 @@ class Weather {
       icon: json['icon'],
     );
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'main': main,
+      'description': description,
+      'icon': icon,
+    };
+  }
 }
 
 class Clouds {
@@ -129,6 +149,12 @@ class Clouds {
     return Clouds(
       all: json['all'],
     );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'all': all,
+    };
   }
 }
 
@@ -146,6 +172,14 @@ class Wind {
       gust: json['gust'],
     );
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'speed': speed,
+      'deg': deg,
+      'gust': gust,
+    };
+  }
 }
 
 class Sys {
@@ -157,5 +191,11 @@ class Sys {
     return Sys(
       pod: json['pod'],
     );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'pod': pod,
+    };
   }
 }

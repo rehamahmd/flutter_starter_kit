@@ -15,6 +15,12 @@ class NetworkError implements AppError {
   final String? msg;
 }
 
+class UnAuthorizedError implements AppError {
+  const UnAuthorizedError([this.msg = 'unAuthorizedError']);
+  @override
+  final String? msg;
+}
+
 class OperationError implements AppError {
   const OperationError([this.msg]);
   @override

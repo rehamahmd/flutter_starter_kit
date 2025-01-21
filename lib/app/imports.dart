@@ -14,6 +14,7 @@ export 'package:flutter_screenutil/flutter_screenutil.dart';
 // App
 export '../src/common/common.dart';
 export '../src/screens/screens.dart';
+export '../src/features/features.dart';
 
 // App Configuration
 export 'app.dart';

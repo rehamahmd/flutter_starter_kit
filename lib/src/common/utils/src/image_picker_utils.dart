@@ -1,5 +1,4 @@
 import 'package:image_picker/image_picker.dart';
-import 'package:flutter_starter_kit/app/imports.dart';
 
 class ImagePickerUtils {
   ImagePickerUtils._();

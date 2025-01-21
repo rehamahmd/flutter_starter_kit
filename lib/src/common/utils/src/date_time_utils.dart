@@ -19,17 +19,14 @@ class DateTimeUtils {
     return DateFormat('hh:mm a').format(DateTime.now());
   }
 
-  static String formatCreatedAt(String createdAt, BuildContext context) {
-    final outputFormat = DateFormat('dd MMMM yyyy hh:mm a', 'ar');
-    final dateTime = DateTime.parse(createdAt);
-    final formattedDateTime = outputFormat.format(dateTime);
-
-    return formattedDateTime;
+  static int getDayFromDate(String date) {
+    final dateTime = DateTime.parse(date);
+    return dateTime.day;
   }
 
   static String getTimeCreatedAt(String createdAt, BuildContext context) {
     final inputFormat = DateFormat('yyyy-MM-ddTHH:mm:ssZ');
-    final outputFormat = DateFormat('hh:mm a', 'ar');
+    final outputFormat = DateFormat('hh:mm a', 'en');
     final dateTime = inputFormat.parse(createdAt);
     final formattedDateTime = outputFormat.format(dateTime);
     return formattedDateTime;

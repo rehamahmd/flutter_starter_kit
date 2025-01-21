@@ -1,8 +1,9 @@
 import 'dart:async';
 import 'dart:io';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_starter_kit/app/imports.dart';
-import 'package:awesome_dio_interceptor/awesome_dio_interceptor.dart';
 import 'package:dio/dio.dart';
+import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import '../../exceptions/network_exceptions_handler.dart';
 import 'network_interceptor.dart';
 
@@ -26,16 +27,18 @@ class NetworkHelper {
     dio.options = options;
     dio.interceptors.addAll([
       NetworkInterceptor(),
-      AwesomeDioInterceptor(
-        logRequestTimeout: false,
-        logRequestHeaders: true,
-        logResponseHeaders: false,
-        logger: debugPrint,
+      PrettyDioLogger(
+        requestHeader: true,
+        requestBody: true,
+        responseBody: true,
+        responseHeader: false,
+        error: true,
+        enabled: kDebugMode,
       ),
     ]);
   }
 
-  Future<dynamic> get(
+  Future<Response> get(
     path, {
     Map<String, String>? headers,
     Map<String, dynamic>? queryParameters,
@@ -43,9 +46,11 @@ class NetworkHelper {
     try {
       if (headers != null) dio.options.headers = headers;
       final Response response = await dio.get(path, queryParameters: queryParameters);
-      return response.data;
-    } on DioException catch (ex) {
-      throw NetworkExceptionsHandler.handelException(ex);
+      return response;
+    } on DioException catch (ex, st) {
+      throw NetworkExceptionsHandler.handelException(ex, st);
+    } catch (e) {
+      throw OperationError();
     }
   }
 
@@ -58,9 +63,11 @@ class NetworkHelper {
     try {
       if (headers != null) dio.options.headers = headers;
       final response = await dio.post(url, data: body, queryParameters: queryParameters);
-      return response.data;
-    } on DioException catch (ex) {
-      throw await NetworkExceptionsHandler.handelException(ex);
+      return response;
+    } on DioException catch (ex, st) {
+      throw NetworkExceptionsHandler.handelException(ex, st);
+    } catch (e) {
+      throw OperationError();
     }
   }
 
@@ -73,9 +80,11 @@ class NetworkHelper {
     try {
       if (headers != null) dio.options.headers = headers;
       final response = await dio.patch(url, data: body, queryParameters: queryParameters);
-      return response.data;
-    } on DioException catch (ex) {
-      throw await NetworkExceptionsHandler.handelException(ex);
+      return response;
+    } on DioException catch (ex, st) {
+      throw NetworkExceptionsHandler.handelException(ex, st);
+    } catch (e) {
+      throw OperationError();
     }
   }
 
@@ -87,9 +96,11 @@ class NetworkHelper {
     try {
       if (headers != null) dio.options.headers = headers;
       final response = await dio.delete(url, queryParameters: queryParameters);
-      return response.data;
-    } on DioException catch (ex) {
-      throw NetworkExceptionsHandler.handelException(ex);
+      return response;
+    } on DioException catch (ex, st) {
+      throw NetworkExceptionsHandler.handelException(ex, st);
+    } catch (e) {
+      throw OperationError();
     }
   }
 }

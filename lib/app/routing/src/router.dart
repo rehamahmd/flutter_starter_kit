@@ -12,6 +12,11 @@ GoRouter router() => GoRouter(
           name: Routes.homeScreen,
           builder: (context, state) => const HomeScreen(),
         ),
+        GoRoute(
+          path: "/${Routes.weatherScreen}:day",
+          name: Routes.weatherScreen,
+          builder: (context, state) => WeatherScreen(day: state.pathParameters['day']),
+        ),
       ],
       redirect: (context, state) {
         return null;
@@ -22,4 +27,5 @@ class Routes {
   static const splashScreen = '/';
   static const notFoundScreen = '/notFound';
   static const homeScreen = '/homeScreen';
+  static const weatherScreen = '/weatherScreen';
 }

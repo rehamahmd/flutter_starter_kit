@@ -2,17 +2,17 @@ import 'package:flutter_starter_kit/app/imports.dart';
 
 enum Flavors {
   dev(
-    "http://localhost:5062/api/",
+    "https://api.openweathermap.org/data/2.5/",
     "assets/.env/.env.test",
     AppIcons.logoDev,
   ),
   staging(
-    "http://staging.api....../",
+    "https://api.openweathermap.org/data/2.5/",
     "assets/.env/.env.test",
     AppIcons.logoStg,
   ),
   production(
-    "https://live.api....../",
+    "https://api.openweathermap.org/data/2.5/",
     "assets/.env/.env.prod",
     AppIcons.logoProd,
   );

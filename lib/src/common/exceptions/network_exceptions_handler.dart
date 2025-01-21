@@ -2,21 +2,15 @@ import 'package:dio/dio.dart';
 import 'package:flutter_starter_kit/app/imports.dart';
 
 class NetworkExceptionsHandler {
-  // Replace statusCode with MessageCode ??
-  static handelException(DioException exception) async {
-    switch (exception.response?.statusCode) {
-      case 401:
-        // SharedPreferencesStorage.clear(StorageKeys.authData); // TODO
-        throw const UnAuthorizeException(); //Authentication is required or failed.
-      case 403:
-        throw const ForbiddenException(); //Authentication succeeded, but the authenticated user doesn't have the necessary permissions.
-      case 400:
-        final errorMessage = exception.response?.data?['messageCode'];
-        throw OperationException(errorMessage);
-      case 500:
-        throw const ServerException();
-      default:
-        throw const UnCaughtException();
-    }
+  static handelException(DioException ex, StackTrace st) async {
+    final response = ex.response;
+    final exception = switch (response?.statusCode) {
+      401 => const UnAuthorizeException(),
+      403 => const ForbiddenException(),
+      400 => OperationException("400ERROR"),
+      500 => const ServerException(),
+      _ => const UnCaughtException(),
+    };
+    Error.throwWithStackTrace(exception, st);
   }
 }

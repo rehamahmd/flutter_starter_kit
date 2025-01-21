@@ -1,20 +1,22 @@
+import 'dart:developer';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter_starter_kit/app/imports.dart';
 
-void log(Object? message) => _customPrint(message, LogLevelEnum.debug);
-void info(Object? message) => _customPrint(message, LogLevelEnum.info);
-void warning(Object? message) => _customPrint(message, LogLevelEnum.warning);
-void error(String? message, Object error) =>
-    _customPrint('$message ** $error', LogLevelEnum.error);
-void trace(String? message, Object error, StackTrace stackTrace) =>
-    _customPrint(
-      '$message ** $error\n, \x1B[1m[TRACE]\x1B[0m => \x1B[37m$stackTrace',
-      LogLevelEnum.error,
-    );
+import '../../src/common/enums/src/log_level_enum.dart';
 
-void _customPrint(Object? message, LogLevelEnum level) {
-  if (AppFlavors.appFlavors == Flavors.production) return;
-  final currentTime = DateTimeUtils.timeFormat(DateTime.now());
-  debugPrint(
-    '[${level.color}] $currentTime ${level.colorStart}=> $message${level.colorEnd} ',
-  );
+class Logger {
+  Logger._();
+
+  static void debug(Object? message) => _customPrint('🟩', message, LogLevelEnum.debug);
+  static void info(Object? message) => _customPrint('🟪', message, LogLevelEnum.info);
+  static void warning(Object? message) => _customPrint('🟨', message, LogLevelEnum.warning);
+  static void error(String? message, Object error) => _customPrint('🟥', '$message ** $error', LogLevelEnum.error);
+  static void trace(String? message, Object error, StackTrace stackTrace) =>
+      _customPrint('❌', '$message ** $error\n,$stackTrace', LogLevelEnum.trace);
+
+  static void _customPrint(icon, Object? message, LogLevelEnum level) {
+    if (!kDebugMode) return;
+    log('''$icon - ${level.colorStart}$message${level.colorEnd} ''');
+  }
 }

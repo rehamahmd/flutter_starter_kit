@@ -105,7 +105,6 @@ The feature directory organizes code related to a specific part of the app. Here
   Defines core business logic and data models.
   - **`entities/`**: Contains data models or value objects.
   - **`i_repositories/`**: Interfaces for repositories.
-  - **`params/`**: Parameters used in business logic.
 
 - **`features/your_feature/presentation/`**:
   Manages the user interface and state.
@@ -116,7 +115,7 @@ The feature directory organizes code related to a specific part of the app. Here
 
 - **`application/`**: Business logic and services.
 - **`data/`**: Data handling (local and remote).
-- **`domain/`**: Core business logic and models.
+- **`domain/`**: Core Domain business logic and entities.
 - **`presentation/`**: User interface and state management.
 </details>
 

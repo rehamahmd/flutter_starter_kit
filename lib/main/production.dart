@@ -1,4 +1,3 @@
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_starter_kit/app/imports.dart';
 
 import '_init.dart';

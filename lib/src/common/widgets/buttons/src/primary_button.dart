@@ -1,4 +1,3 @@
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_starter_kit/app/imports.dart';
 
 class PrimaryButton extends StatelessWidget {
@@ -9,7 +8,6 @@ class PrimaryButton extends StatelessWidget {
   final bool disabled;
 
   const PrimaryButton._({
-    super.key,
     required this.onPress,
     this.buttonText = '',
     this.svgIconProps,
