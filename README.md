@@ -21,7 +21,7 @@ This project is built on top of a custom Flutter Starter Kit, which provides a f
 ```
 - **DI Generator**:
 ```shell
-flutter packages pub run build_runner build
+flutter packages pub run build_runner build --delete-conflicting-outputs 
 ```
 - **Icons Generator
 ```shell
