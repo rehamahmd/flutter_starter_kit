@@ -15,20 +15,22 @@ class AppText extends StatelessWidget {
     required String text,
     final AppTextStyle? appTextStyle,
     final double? lineHeight,
+    final TextStyle? style,
   }) {
     return AppText._(
       text,
-      textStyle: appTextStyle?.primaryStyle?.copyWith(height: lineHeight),
+      textStyle: style ?? appTextStyle?.primaryStyle?.copyWith(height: lineHeight),
     );
   }
   factory AppText.secondary({
     required String text,
     final AppTextStyle? appTextStyle,
     final double? lineHeight,
+    final TextStyle? style,
   }) {
     return AppText._(
       text,
-      textStyle: appTextStyle?.secondaryStyle?.copyWith(height: lineHeight),
+      textStyle: style ?? appTextStyle?.secondaryStyle?.copyWith(height: lineHeight),
     );
   }
   @override

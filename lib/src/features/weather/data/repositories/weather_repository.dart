@@ -18,7 +18,7 @@ class WeatherRepository implements IWeatherRepository {
       if (_day == day) return Right(_getCachedWeatherEntity());
 
       final apiResponse = await _weatherRemoteDataSource.getCityWeather(cityId);
-      final weatherData = _convertWeatherListForDay(apiResponse.data, "22");
+      final weatherData = _convertWeatherListForDay(apiResponse.data, day);
       _setCachedWeatherEntity(weatherData);
       _day = day;
 
@@ -43,7 +43,7 @@ class WeatherRepository implements IWeatherRepository {
   }
 
   void _setCachedWeatherEntity(List<WeatherEntity> data) {
-    final List<String> weatherDataString = data.map((e) => e.toString()).toList();
+    final List<String> weatherDataString = data.map((e) => e.toJsonString()).toList();
     _weatherLocalDataSource.setCachedWeatherEntity(weatherDataString);
   }
 

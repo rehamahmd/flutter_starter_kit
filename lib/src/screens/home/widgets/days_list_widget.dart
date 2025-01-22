@@ -54,6 +54,10 @@ class DaysListWidget extends StatelessWidget {
                             text: DateTimeUtils.getDayName(e),
                             appTextStyle: AppTextStyle.regular18Black,
                           ),
+                          AppText.primary(
+                            text: " ${DateTimeUtils.slashFormat(e)} ",
+                            appTextStyle: AppTextStyle.regular14Grey,
+                          ),
                           AppSpace.vertical(10),
                           Row(
                             children: [

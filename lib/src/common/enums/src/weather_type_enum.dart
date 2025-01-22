@@ -1,9 +1,9 @@
 import 'package:flutter_starter_kit/app/imports.dart';
 
 enum WeatherTypeEnum {
-  sunny('clear', 'Its sunny now', AppIcons.logoDev, AppColors.sunnyBgColor),
-  cloudy('cloud', 'Its cloudy now', AppIcons.logoStg, AppColors.cloudyBgColor),
-  rainy('rainy', 'Its raining now', AppIcons.logoProd, AppColors.rainyBgColor);
+  sunny('clear', 'Sunny \nDay \nWalk', AppIcons.sunnyPng, AppColors.sunnyBgColor),
+  cloudy('cloud', "It's \ncloudy \nnow", AppIcons.cloudPng, AppColors.cloudyBgColor),
+  rainy('rainy', "It's \nraining \nnow", AppIcons.rainPng, AppColors.rainyBgColor);
 
   final String text;
   final String uiText;

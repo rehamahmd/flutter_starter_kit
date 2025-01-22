@@ -5,6 +5,9 @@ class DateTimeUtils {
   DateTimeUtils._();
 
   static String getDayName(DateTime date) {
+    if (DateTime.now().day == date.day) {
+      return "Today";
+    }
     String dayName = DateFormat('EEEE').format(date);
     return dayName;
   }

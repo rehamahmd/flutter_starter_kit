@@ -1,6 +1,6 @@
 //! DI
 export './_di/di.dart';
-// export './_di/di.config.dart';
+export './_di/di.config.dart';
 
 export 'constants/constants.dart';
 export 'enums/enums.dart';

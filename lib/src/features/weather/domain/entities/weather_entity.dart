@@ -3,29 +3,30 @@ import 'dart:convert';
 import 'package:flutter_starter_kit/app/imports.dart';
 
 class WeatherEntity {
-  final int dt;
-  final double temp;
-  final int humidity;
+  final int? dt;
+  final double? temp;
+  final int? humidity;
   final WeatherTypeEnum weatherType;
-  final double windSpeed;
-  final String date;
+  final double? windSpeed;
+  final String? date;
 
   WeatherEntity({
     required this.dt,
-    required this.temp,
-    required this.humidity,
+    this.temp,
+    this.humidity,
     required this.weatherType,
-    required this.windSpeed,
-    required this.date,
+    this.windSpeed,
+    this.date,
   });
 
   factory WeatherEntity.fromJson(Map<String, dynamic> json) {
+    final weatherType = json['weather'] != null && json['weather'].isNotEmpty ? json['weather'][0] : {};
     return WeatherEntity(
       dt: json['dt'],
-      temp: json['main']['temp'],
+      temp: (json['main']['temp'] as num?)?.toDouble(),
       humidity: json['main']['humidity'],
-      weatherType: WeatherTypeEnum.fromString(json['weather'][0]['main']),
-      windSpeed: json['wind']['speed'],
+      weatherType: WeatherTypeEnum.fromString(weatherType['main']),
+      windSpeed: (json['wind']['speed'] as num?)?.toDouble(),
       date: json['dt_txt'],
     );
   }
@@ -44,14 +45,12 @@ class WeatherEntity {
     };
   }
 
-  /// Factory method to create an instance from a JSON string
   factory WeatherEntity.fromString(String jsonString) {
     final Map<String, dynamic> json = Map<String, dynamic>.from(jsonDecode(jsonString) as Map); // Decode JSON string
     return WeatherEntity.fromJson(json);
   }
 
-  /// Converts the object to a JSON string
-  String toString() {
+  String toJsonString() {
     return jsonEncode(toJson());
   }
 }

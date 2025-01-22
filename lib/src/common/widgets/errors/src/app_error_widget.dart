@@ -32,9 +32,8 @@ class AppErrorWidget extends StatelessWidget {
           AppText.primary(text: subtitle, appTextStyle: AppTextStyle.regular24Grey),
           AppSpace.vertical(34),
           if (onRefresh != null)
-            PrimaryButton.icon(
+            PrimaryButton.basic(
               onPress: () => onRefresh!(),
-              svgIconProps: SvgIconProps(svgIcon: AppIcons.refreshIcon),
               buttonText: 'Refresh',
             ),
           AppSpace.vertical(50),

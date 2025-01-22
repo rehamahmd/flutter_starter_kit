@@ -81,6 +81,17 @@ class TextStyleImp {
       fontWeight: FontWeight.bold,
       color: AppColors.whiteForeground,
     ),
+    AppTextStyle.bold55: TextStyle(
+      fontSize: 55.sp,
+      fontWeight: FontWeight.bold,
+    ),
+
+    AppTextStyle.bold55White: TextStyle(
+      fontSize: 55.sp,
+      fontWeight: FontWeight.bold,
+      color: AppColors.whiteForeground,
+    ),
+
     // ** ---------- Regular
     AppTextStyle.regular10: TextStyle(
       fontSize: 10.sp,
@@ -222,6 +233,26 @@ class TextStyleImp {
       fontSize: 28.sp,
       fontWeight: FontWeight.normal,
       color: AppColors.primaryTextColor,
+    ),
+    AppTextStyle.regular28White: TextStyle(
+      fontSize: 28.sp,
+      fontWeight: FontWeight.normal,
+      color: AppColors.whiteForeground,
+    ),
+    AppTextStyle.regular38: TextStyle(
+      fontSize: 38.sp,
+      fontWeight: FontWeight.normal,
+      color: AppColors.whiteForeground,
+    ),
+    AppTextStyle.regular38White: TextStyle(
+      fontSize: 38.sp,
+      fontWeight: FontWeight.normal,
+      color: AppColors.whiteForeground,
+    ),
+    AppTextStyle.regular55White: TextStyle(
+      fontSize: 55.sp,
+      fontWeight: FontWeight.normal,
+      color: AppColors.whiteForeground,
     ),
   };
 }

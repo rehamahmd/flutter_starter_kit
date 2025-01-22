@@ -15,7 +15,6 @@ extension TextStyleExtensions on AppTextStyle {
   TextStyle? get secondaryStyle {
     try {
       TextStyle selectedTextStyle = TextStyleImp.textStyleImp[this]!;
-      // final fontFamily = FontFamilyEnum.secondaryFont.fontFamilyE;
       return GoogleFonts.italiana(textStyle: selectedTextStyle);
     } catch (e) {
       throw Exception("Secondary Style:.. Cant get textStyle Imp");

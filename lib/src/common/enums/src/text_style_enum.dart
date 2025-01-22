@@ -34,6 +34,8 @@ enum AppTextStyle {
   bold36Royal,
   bold36White,
 
+  bold55,
+  bold55White,
   //***** Regular **/
   //! Regular [10]
   regular10,
@@ -82,4 +84,11 @@ enum AppTextStyle {
   //! Regular [28]
   regular28,
   regular28Royal,
+  regular28White,
+
+  regular38,
+  regular38White,
+
+  regular55,
+  regular55White,
 }
