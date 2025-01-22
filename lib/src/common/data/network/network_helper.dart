@@ -48,9 +48,10 @@ class NetworkHelper {
       final Response response = await dio.get(path, queryParameters: queryParameters);
       return response;
     } on DioException catch (ex, st) {
-      throw NetworkExceptionsHandler.handelException(ex, st);
+      print("aaaa");
+      throw await NetworkExceptionsHandler.handelException(ex, st);
     } catch (e) {
-      throw OperationError();
+      throw OperationException();
     }
   }
 
@@ -67,7 +68,7 @@ class NetworkHelper {
     } on DioException catch (ex, st) {
       throw NetworkExceptionsHandler.handelException(ex, st);
     } catch (e) {
-      throw OperationError();
+      throw OperationException();
     }
   }
 
@@ -84,7 +85,7 @@ class NetworkHelper {
     } on DioException catch (ex, st) {
       throw NetworkExceptionsHandler.handelException(ex, st);
     } catch (e) {
-      throw OperationError();
+      throw OperationException();
     }
   }
 
@@ -100,7 +101,7 @@ class NetworkHelper {
     } on DioException catch (ex, st) {
       throw NetworkExceptionsHandler.handelException(ex, st);
     } catch (e) {
-      throw OperationError();
+      throw OperationException();
     }
   }
 }

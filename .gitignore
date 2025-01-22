@@ -44,9 +44,6 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
-# FVM Version Cache
-.fvm/
-*.env
+# UnComment
+# *.env
 
-# Flutter Launcher Icons configuration files
-flutter_launcher_icons-*.yaml

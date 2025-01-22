@@ -4,44 +4,40 @@ class AppErrorWidget extends StatelessWidget {
   final String title;
   final String subtitle;
   final String image;
-  final Function onRefresh;
+  final Function? onRefresh;
   const AppErrorWidget({
     super.key,
     required this.title,
     this.subtitle = '',
     required this.image,
-    required this.onRefresh,
+    this.onRefresh,
   });
 
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Column(
-            children: [
-              AppSpace.vertical(50),
-              SizedBox(
-                height: 240.h,
-                child: ImageWidget(
-                  props: ImageWidgetProps(
-                    image: image,
-                  ),
-                ),
+          SizedBox(
+            height: 240.h,
+            child: ImageWidget(
+              props: ImageWidgetProps(
+                image: image,
               ),
-              AppSpace.vertical(34),
-              AppText.primary(text: title ?? 'خطأ بالشبكة', appTextStyle: AppTextStyle.bold36Royal),
-              AppText.primary(text: subtitle ?? 'برجاء إعادة تحميل الصفحة', appTextStyle: AppTextStyle.regular24Grey),
-            ],
+            ),
           ),
-          PrimaryButton.icon(
-            onPress: () {
-              onRefresh();
-            },
-            svgIconProps: SvgIconProps(svgIcon: AppIcons.refreshIcon),
-            buttonText: 'إعادة تحميل الصفحة',
-          )
+          AppSpace.vertical(20),
+          AppText.primary(text: title, appTextStyle: AppTextStyle.bold36Royal),
+          AppText.primary(text: subtitle, appTextStyle: AppTextStyle.regular24Grey),
+          AppSpace.vertical(34),
+          if (onRefresh != null)
+            PrimaryButton.icon(
+              onPress: () => onRefresh!(),
+              svgIconProps: SvgIconProps(svgIcon: AppIcons.refreshIcon),
+              buttonText: 'Refresh',
+            ),
+          AppSpace.vertical(50),
         ],
       ),
     );

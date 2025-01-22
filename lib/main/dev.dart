@@ -24,7 +24,7 @@ class AppBlocObserver extends BlocObserver {
   @override
   void onCreate(BlocBase<dynamic> bloc) {
     super.onCreate(bloc);
-    Logger.info(" $bloc is Created");
+    Logger.info("$bloc is Created");
   }
 
   @override

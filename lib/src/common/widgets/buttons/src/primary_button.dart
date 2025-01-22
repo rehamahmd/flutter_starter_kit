@@ -50,7 +50,7 @@ class PrimaryButton extends StatelessWidget {
     return Center(
       child: Material(
         child: Container(
-          width: 370.w,
+          width: 300.w,
           height: 56.h,
           decoration: BoxDecoration(
             gradient: LinearGradient(

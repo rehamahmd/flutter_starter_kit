@@ -2,7 +2,13 @@ import 'package:dio/dio.dart';
 import 'package:flutter_starter_kit/app/imports.dart';
 
 class NetworkExceptionsHandler {
-  static handelException(DioException ex, StackTrace st) async {
+  static handelException(DioException ex, StackTrace st) {
+    Logger.trace("handelException", ex, st);
+    if (ex.type == DioExceptionType.connectionTimeout ||
+        ex.type == DioExceptionType.receiveTimeout ||
+        ex.type == DioExceptionType.connectionError) {
+      throw Error.throwWithStackTrace(const ConnectivityException("Check Your Network"), st);
+    }
     final response = ex.response;
     final exception = switch (response?.statusCode) {
       401 => const UnAuthorizeException(),
@@ -11,6 +17,6 @@ class NetworkExceptionsHandler {
       500 => const ServerException(),
       _ => const UnCaughtException(),
     };
-    Error.throwWithStackTrace(exception, st);
+    throw Error.throwWithStackTrace(exception, st);
   }
 }

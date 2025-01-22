@@ -11,7 +11,6 @@ class WeatherRemoteDataSource {
   WeatherRemoteDataSource(this._networkHelper);
 
   Future<NetworkResponse> getCityWeather(int cityId) async {
-    // try {
     final Response response = await _networkHelper.get(
       Endpoints.weather,
       queryParameters: cityQueryParameters(cityId),
@@ -21,13 +20,6 @@ class WeatherRemoteDataSource {
       isSucceeded: response.statusCode == 200,
       data: response.data['list'],
     );
-    // } on DioException catch (error, st) {
-    //   Logger.trace("WeatherRemoteDataSource: getCityWeather", error, st);
-    //   rethrow;
-    // } catch (error) {
-    //   Logger.error("WeatherRemoteDataSource: getCityWeather", error);
-    //   throw OperationException("An unexpected error occurred: $error");
-    // }
   }
 
   Map<String, dynamic> cityQueryParameters(int city) {

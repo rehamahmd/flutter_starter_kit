@@ -31,10 +31,9 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
   final MainAppBarProps props;
   const MainAppBar({super.key, required this.props});
   @override
-  Size get preferredSize =>
-      Size.fromHeight(props.appBarHeight != null ? props.appBarHeight! : 90.h);
+  Size get preferredSize => Size.fromHeight(props.appBarHeight != null ? props.appBarHeight! : 90.h);
   _back(BuildContext context) {
-    Navigation.to(context, navigationType: NavigateType.back);
+    Navigation.back(context);
   }
 
   @override

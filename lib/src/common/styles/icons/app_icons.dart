@@ -14,9 +14,8 @@ class AppIcons {
   static const logoDev = "${_IconPaths.imagePath}logo_dev.png";
   static const logoStg = "${_IconPaths.imagePath}logo_staging.png";
   static const logoProd = "${_IconPaths.imagePath}logo_prod.png";
-  static const networkErrorPng = "${_IconPaths.imagePath}cuate.png";
-  static const serverErrorPng = "${_IconPaths.imagePath}server_error.png";
-  static const error404Png = "${_IconPaths.imagePath}404error.png";
+  static const generalError = "${_IconPaths.imagePath}error.png";
+  static const cityPng = "${_IconPaths.imagePath}city.jpg";
 }
 
 class _IconPaths {

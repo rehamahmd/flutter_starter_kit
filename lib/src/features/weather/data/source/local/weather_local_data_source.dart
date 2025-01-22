@@ -4,11 +4,11 @@ import 'package:flutter_starter_kit/app/imports.dart';
 class WeatherLocalDataSource {
   WeatherLocalDataSource();
 
-  setCachedWeatherData(List<String> data) {
+  setCachedWeatherEntity(List<String> data) {
     SharedPreferencesStorage.setStringList(StorageKeys.dayWeather, data);
   }
 
-  List<String> getCachedWeatherData() {
+  List<String> getCachedWeatherEntity() {
     final result = SharedPreferencesStorage.getStringList(StorageKeys.dayWeather);
     return result ?? [];
   }

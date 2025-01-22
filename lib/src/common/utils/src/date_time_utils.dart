@@ -3,6 +3,16 @@ import 'package:flutter_starter_kit/app/imports.dart';
 
 class DateTimeUtils {
   DateTimeUtils._();
+
+  static String getDayName(DateTime date) {
+    String dayName = DateFormat('EEEE').format(date);
+    return dayName;
+  }
+
+  static DateTime parseDate(String dateString) {
+    return DateTime.parse(dateString);
+  }
+
   static String slashFormat(DateTime date) {
     return DateFormat('dd/MM/yyyy').format(date);
   }
@@ -17,23 +27,6 @@ class DateTimeUtils {
 
   static String timeFormat(DateTime date) {
     return DateFormat('hh:mm a').format(DateTime.now());
-  }
-
-  static int getDayFromDate(String date) {
-    final dateTime = DateTime.parse(date);
-    return dateTime.day;
-  }
-
-  static String getTimeCreatedAt(String createdAt, BuildContext context) {
-    final inputFormat = DateFormat('yyyy-MM-ddTHH:mm:ssZ');
-    final outputFormat = DateFormat('hh:mm a', 'en');
-    final dateTime = inputFormat.parse(createdAt);
-    final formattedDateTime = outputFormat.format(dateTime);
-    return formattedDateTime;
-  }
-
-  static String capitalizeFirstChar(String? txt) {
-    return txt != null ? txt.replaceFirst(txt[0], txt[0].toUpperCase()) : "";
   }
 
   static int calculateTheDifference(String dateTime, String createdAt) {

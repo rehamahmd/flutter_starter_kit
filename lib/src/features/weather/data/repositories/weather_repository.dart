@@ -13,18 +13,20 @@ class WeatherRepository implements IWeatherRepository {
   String? _day; // cache it on memory not on local storage.
 
   @override
-  Future<Either<AppError, List<WeatherData>>> getCityWeatherByDay(int cityId, String? day) async {
+  Future<Either<AppError, List<WeatherEntity>>> getCityWeatherByDay(int cityId, String? day) async {
     try {
-      if (_day == day) return Right(_getCachedWeatherData());
+      if (_day == day) return Right(_getCachedWeatherEntity());
 
       final apiResponse = await _weatherRemoteDataSource.getCityWeather(cityId);
-      final weatherData = _convertWeatherListForDay(apiResponse.data, day);
-      _setCachedWeatherData(weatherData);
+      final weatherData = _convertWeatherListForDay(apiResponse.data, "22");
+      _setCachedWeatherEntity(weatherData);
       _day = day;
+
       return Right(weatherData);
     } on UnAuthorizeException {
       return const Left(UnAuthorizedError());
-    } on ConnectivityException {
+    } on ConnectivityException catch (error) {
+      Logger.error("message", error);
       return const Left(NetworkError());
     } catch (error, stackTrace) {
       Logger.trace("Error in getCityWeatherByDay $day ", error, stackTrace);
@@ -33,20 +35,20 @@ class WeatherRepository implements IWeatherRepository {
   }
 
   // as we need to save only selected day so i dont need all the data
-  List<WeatherData> _convertWeatherListForDay(List<dynamic> list, String? day) {
-    return list
-        .where((e) => DateTimeUtils.getDayFromDate(e['dt_txt']) == day)
-        .map((e) => WeatherData.fromJson(e))
+  List<WeatherEntity> _convertWeatherListForDay(List<dynamic> weatherList, String? day) {
+    return weatherList
+        .where((e) => DateTimeUtils.parseDate(e['dt_txt']).day.toString() == day)
+        .map((e) => WeatherEntity.fromJson(e))
         .toList();
   }
 
-  void _setCachedWeatherData(List<WeatherData> data) {
-    final List<String> weatherDataString = data.map((e) => e.toStringa()).toList();
-    _weatherLocalDataSource.setCachedWeatherData(weatherDataString);
+  void _setCachedWeatherEntity(List<WeatherEntity> data) {
+    final List<String> weatherDataString = data.map((e) => e.toString()).toList();
+    _weatherLocalDataSource.setCachedWeatherEntity(weatherDataString);
   }
 
-  List<WeatherData> _getCachedWeatherData() {
-    final weatherDataString = _weatherLocalDataSource.getCachedWeatherData();
-    return weatherDataString.map((String e) => WeatherData.fromString(e)).toList();
+  List<WeatherEntity> _getCachedWeatherEntity() {
+    final weatherDataString = _weatherLocalDataSource.getCachedWeatherEntity();
+    return weatherDataString.map((String e) => WeatherEntity.fromString(e)).toList();
   }
 }

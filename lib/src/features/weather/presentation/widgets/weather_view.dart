@@ -1,7 +1,12 @@
 import 'package:flutter_starter_kit/app/imports.dart';
 
+import 'weather_state_widget.dart';
+
 class WeatherView extends StatelessWidget {
   const WeatherView({super.key});
+  _onRefresh(context) {
+    Navigation.root(context);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -9,12 +14,8 @@ class WeatherView extends StatelessWidget {
       builder: (context, state) {
         return switch (state) {
           WeatherLoading() => const LoadingWidget(),
-          WeatherLoaded() => Container(),
-          WeatherError() => switch (state.error) {
-              NetworkError() => ErrorScreen.networkError(onRefresh: () => print(context)),
-              UnAuthorizedError() => ErrorScreen.serverError(onRefresh: () => print(context)),
-              _ => ErrorScreen.serverError(onRefresh: () => print(context))
-            },
+          WeatherLoaded() => WeatherStateWidget(weather: state.weather),
+          WeatherError() => ErrorScreen.show(state.error),
           _ => const SizedBox()
         };
       },

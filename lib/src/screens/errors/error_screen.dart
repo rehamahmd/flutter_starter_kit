@@ -4,47 +4,77 @@ class ErrorScreen extends StatelessWidget {
   final String title;
   final String subtitle;
   final String image;
-  final Function onRefresh;
+  final Function? onRefresh;
   const ErrorScreen._({
     required this.title,
     this.subtitle = '',
     required this.image,
-    required this.onRefresh,
+    this.onRefresh,
   });
 
   factory ErrorScreen.notFound({
-    required Function onRefresh,
+    Function? onRefresh,
   }) {
     return ErrorScreen._(
       title: 'Not Found',
       subtitle: '',
-      image: AppIcons.error404Png,
+      image: AppIcons.generalError,
       onRefresh: onRefresh,
     );
   }
   factory ErrorScreen.serverError({
-    required Function onRefresh,
+    Function? onRefresh,
   }) {
     return ErrorScreen._(
       title: 'Server Error',
       subtitle: '',
-      image: AppIcons.serverErrorPng,
+      image: AppIcons.generalError,
       onRefresh: onRefresh,
     );
   }
   factory ErrorScreen.networkError({
-    required Function onRefresh,
+    Function? onRefresh,
   }) {
     return ErrorScreen._(
       title: 'Network Error',
       subtitle: '',
-      image: AppIcons.networkErrorPng,
+      image: AppIcons.generalError,
       onRefresh: onRefresh,
     );
   }
+  factory ErrorScreen.generalError({
+    Function? onRefresh,
+  }) {
+    return ErrorScreen._(
+      title: 'Error Happend!',
+      subtitle: '',
+      image: AppIcons.generalError,
+      onRefresh: onRefresh,
+    );
+  }
+  factory ErrorScreen.notAuthorized({
+    Function? onRefresh,
+  }) {
+    return ErrorScreen._(
+      title: 'Not Authorized!',
+      subtitle: '',
+      image: AppIcons.generalError,
+      onRefresh: onRefresh,
+    );
+  }
+  factory ErrorScreen.show(AppError error, [RefreshCallback? onRefresh]) {
+    return switch (error) {
+      NetworkError() => ErrorScreen.networkError(onRefresh: onRefresh),
+      ServerError() => ErrorScreen.serverError(onRefresh: onRefresh),
+      UnAuthorizedError() => ErrorScreen.notAuthorized(onRefresh: onRefresh),
+      _ => ErrorScreen.generalError(onRefresh: onRefresh)
+    };
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: MainAppBar(props: MainAppBarProps(screenTitle: '')),
       body: AppErrorWidget(
         title: title,
         subtitle: subtitle,

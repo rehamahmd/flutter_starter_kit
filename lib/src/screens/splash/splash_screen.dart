@@ -17,7 +17,7 @@ class _SplashScreenState extends State<SplashScreen> {
         if (!mounted) return;
         Navigation.to(
           context,
-          screenName: Routes.homeScreen,
+          Routes.homeScreen,
           navigationType: NavigateType.goNamed,
         );
       });

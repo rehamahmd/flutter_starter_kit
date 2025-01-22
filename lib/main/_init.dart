@@ -9,6 +9,7 @@ class Main {
     WidgetsFlutterBinding.ensureInitialized();
     configureDependencies();
     await initializeDateFormatting('en', null);
+    SystemUtils.setPreferredOrientations();
 
     await SharedPreferencesStorage.init();
   }

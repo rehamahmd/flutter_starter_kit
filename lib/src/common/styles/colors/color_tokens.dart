@@ -18,4 +18,8 @@ class ColorTokens {
   static const Color redMid = Color(0xffE50000);
   static const Color grey = Color(0xff858585);
   static const Color grey2 = Color(0xffE6E6E6);
+
+  static const Color cyan = Color(0xffB4ECE4);
+  static const Color simon = Color(0xffF6AC91);
+  static const Color lightBlue = Color(0xffB5D4DF);
 }

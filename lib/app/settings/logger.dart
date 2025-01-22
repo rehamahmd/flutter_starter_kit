@@ -16,7 +16,7 @@ class Logger {
       _customPrint('❌', '$message ** $error\n,$stackTrace', LogLevelEnum.trace);
 
   static void _customPrint(icon, Object? message, LogLevelEnum level) {
-    if (!kDebugMode) return;
+    // if (!kDebugMode) return;
     log('''$icon - ${level.colorStart}$message${level.colorEnd} ''');
   }
 }

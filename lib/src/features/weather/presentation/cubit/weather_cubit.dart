@@ -10,10 +10,14 @@ class WeatherCubit extends Cubit<WeatherState> {
   WeatherCubit(this._weatherService) : super(WeatherInitial());
 
   getCityWeatherByDay(String? day) async {
-    int cityId = 292223; //static for now [Dubai]
+    int cityId = 292223; // static for now [Dubai]
+    emit(WeatherLoading());
     final result = await _weatherService.getCityWeatherByDay(cityId, day);
     result.fold(
-      (error) => emit(WeatherError(error)),
+      (error) {
+        Logger.debug(error);
+        emit(WeatherError(error));
+      },
       (data) => emit(WeatherLoaded(data.first)),
     );
   }

@@ -3,7 +3,6 @@ import 'package:flutter_starter_kit/app/imports.dart';
 ThemeData appTheme = ThemeData(
   scaffoldBackgroundColor: Colors.white,
   appBarTheme: const AppBarTheme(color: Colors.white),
-  useMaterial3: false,
   iconTheme: IconThemeData(color: AppColors.primaryTextColor, size: 16.h),
   colorScheme: const ColorScheme.light(
     primary: AppColors.primaryColor,

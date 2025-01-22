@@ -15,6 +15,11 @@ class AppColors {
   //![TextField]
   static const inputBorderColors = ColorTokens.grey2;
 
+  //![Background]
+  static const sunnyBgColor = ColorTokens.simon;
+  static const cloudyBgColor = ColorTokens.cyan;
+  static const rainyBgColor = ColorTokens.lightBlue;
+
   //! ForeGround
   static const whiteForeground = ColorTokens.white;
 

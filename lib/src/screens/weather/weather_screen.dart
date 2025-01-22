@@ -9,7 +9,7 @@ class WeatherScreen extends StatelessWidget {
     return BlocProvider(
       create: (context) => WeatherCubit(getIt())..getCityWeatherByDay(day),
       child: Scaffold(
-        appBar: MainAppBar(props: MainAppBarProps(screenTitle: '')),
+        // appBar: MainAppBar(props: MainAppBarProps(screenTitle: '')),
         body: Center(child: WeatherView()),
       ),
     );
