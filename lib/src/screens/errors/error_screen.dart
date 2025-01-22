@@ -43,10 +43,11 @@ class ErrorScreen extends StatelessWidget {
     );
   }
   factory ErrorScreen.generalError({
+    String? title,
     Function? onRefresh,
   }) {
     return ErrorScreen._(
-      title: 'Error Happend!',
+      title: title ?? 'Error Happend!',
       subtitle: '',
       image: AppIcons.generalError,
       onRefresh: onRefresh,
@@ -67,6 +68,7 @@ class ErrorScreen extends StatelessWidget {
       NetworkError() => ErrorScreen.networkError(onRefresh: onRefresh),
       ServerError() => ErrorScreen.serverError(onRefresh: onRefresh),
       UnAuthorizedError() => ErrorScreen.notAuthorized(onRefresh: onRefresh),
+      OperationError() => ErrorScreen.generalError(title: error.msg, onRefresh: onRefresh),
       _ => ErrorScreen.generalError(onRefresh: onRefresh)
     };
   }

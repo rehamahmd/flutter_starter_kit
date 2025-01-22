@@ -46,7 +46,7 @@ class WeatherEntity {
   }
 
   factory WeatherEntity.fromString(String jsonString) {
-    final Map<String, dynamic> json = Map<String, dynamic>.from(jsonDecode(jsonString) as Map); // Decode JSON string
+    final Map<String, dynamic> json = Map<String, dynamic>.from(jsonDecode(jsonString) as Map);
     return WeatherEntity.fromJson(json);
   }
 

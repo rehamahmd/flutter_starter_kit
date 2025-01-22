@@ -16,6 +16,7 @@ enum AppTextStyle {
   bold14Black,
   //! Bold [16]
 
+  bold16,
   bold16Royal,
 
   bold18,

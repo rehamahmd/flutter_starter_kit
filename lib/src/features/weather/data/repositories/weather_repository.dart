@@ -19,6 +19,8 @@ class WeatherRepository implements IWeatherRepository {
 
       final apiResponse = await _weatherRemoteDataSource.getCityWeather(cityId);
       final weatherData = _convertWeatherListForDay(apiResponse.data, day);
+      if (weatherData.isEmpty) return Left(OperationError("Empty No Data"));
+
       _setCachedWeatherEntity(weatherData);
       _day = day;
 

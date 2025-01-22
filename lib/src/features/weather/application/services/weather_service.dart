@@ -9,10 +9,8 @@ class WeatherService {
   WeatherService(this._weatherRepository);
 
   Future<Either<AppError, List<WeatherEntity>>> getCityWeatherByDay(int cityId, String? day) async {
-    final allDayWeatherEntity = await _weatherRepository.getCityWeatherByDay(cityId, day);
-    // allDayWeatherEntity.fold((error) => Left(error), (watherData) {
-    //   // TODO: get Closest weather to the currrent Time
-    // });
-    return allDayWeatherEntity;
+    final dayWeatherList = await _weatherRepository.getCityWeatherByDay(cityId, day);
+    Logger.debug(dayWeatherList);
+    return dayWeatherList;
   }
 }

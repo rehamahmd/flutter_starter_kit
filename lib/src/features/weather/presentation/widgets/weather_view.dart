@@ -1,6 +1,6 @@
 import 'package:flutter_starter_kit/app/imports.dart';
 
-import 'weather_state_widget.dart';
+import 'weather_details_widget.dart';
 
 class WeatherView extends StatelessWidget {
   const WeatherView({super.key});
@@ -14,7 +14,7 @@ class WeatherView extends StatelessWidget {
       builder: (context, state) {
         return switch (state) {
           WeatherLoading() => const LoadingWidget(),
-          WeatherLoaded() => WeatherStateWidget(weather: state.weather),
+          WeatherLoaded() => WeatherDetailsWidget(weather: state.weather),
           WeatherError() => ErrorScreen.show(state.error),
           _ => const SizedBox()
         };

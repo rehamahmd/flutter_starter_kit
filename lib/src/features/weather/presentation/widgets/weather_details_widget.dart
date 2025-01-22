@@ -2,9 +2,9 @@ import 'package:flutter_starter_kit/app/imports.dart';
 
 import '../../domain/entities/weather_entity.dart';
 
-class WeatherStateWidget extends StatelessWidget {
+class WeatherDetailsWidget extends StatelessWidget {
   final WeatherEntity weather;
-  const WeatherStateWidget({super.key, required this.weather});
+  const WeatherDetailsWidget({super.key, required this.weather});
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +33,7 @@ class WeatherStateWidget extends StatelessWidget {
                     props: ImageWidgetProps(
                       image: weatherType.icon,
                       width: 330.w,
+                      height: 300.h,
                     ),
                   ),
                 ],
@@ -63,8 +64,8 @@ class WeatherStateWidget extends StatelessWidget {
                                 style: AppTextStyle.regular14White.primaryStyle?.copyWith(fontSize: 90.sp),
                               ),
                               PositionedDirectional(
-                                top: 5,
-                                end: 10,
+                                top: 5.h,
+                                end: 14.w,
                                 child: AppText.primary(
                                   text: "o",
                                   appTextStyle: AppTextStyle.regular28White,
@@ -83,13 +84,13 @@ class WeatherStateWidget extends StatelessWidget {
                     children: [
                       SizedBox(
                         width: 115.w,
-                        height: 75.h,
+                        height: 80.h,
                         child: Card(
                           margin: EdgeInsets.zero,
                           color: Colors.white,
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4.h)),
                           child: Padding(
-                            padding: EdgeInsets.all(8.0.h),
+                            padding: EdgeInsets.symmetric(vertical: 8.0.h, horizontal: 12.w),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -100,7 +101,7 @@ class WeatherStateWidget extends StatelessWidget {
                                 ),
                                 AppText.primary(
                                   text: "${weather.windSpeed.toString()}km/h",
-                                  appTextStyle: AppTextStyle.bold18,
+                                  appTextStyle: AppTextStyle.bold16,
                                 ),
                               ],
                             ),
@@ -108,13 +109,13 @@ class WeatherStateWidget extends StatelessWidget {
                         ),
                       ),
                       SizedBox(
-                        width: 85.w,
-                        height: 75.h,
+                        width: 90.w,
+                        height: 80.h,
                         child: Card(
                           margin: EdgeInsets.zero,
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4.h)),
                           child: Padding(
-                            padding: EdgeInsets.all(8.0.h),
+                            padding: EdgeInsets.symmetric(vertical: 8.0.h, horizontal: 12.w),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -125,7 +126,7 @@ class WeatherStateWidget extends StatelessWidget {
                                 ),
                                 AppText.primary(
                                   text: "${weather.humidity.toString()}%",
-                                  appTextStyle: AppTextStyle.bold18,
+                                  appTextStyle: AppTextStyle.bold16,
                                 ),
                               ],
                             ),

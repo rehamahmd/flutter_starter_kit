@@ -1,10 +1,36 @@
 
-# Flutter Starter Kit  
+# Weather App  
+A Simple Weather App built using Flutter.
 
-A Flutter starter kit helps to get a new project up and running with a solid foundation and essential components. Here’s a suggested structure for a Flutter starter kit that includes best practices, core dependencies, and modular organization:
+# Note
+This project is built on top of a custom Flutter Starter Kit, which provides a foundation for building scalable and maintainable apps. As a result, you may notice some code, files, or modules that are not directly related to this specific app's functionality. These are part of the starter kit and can be ignored or adapted as needed.
+
+# Get Started
+
+- **Run Development Environment**:
+```shell
+  flutter run --flavor dev -t lib/main/dev.dart
+```
+- **Run Staging Environment**:
+```shell
+  flutter run --flavor staging -t lib/main/staging.dart
+```
+- **Run Production Environment**:
+```shell
+  flutter run --flavor production -t lib/main/production.dart
+```
+- **DI Generator**:
+```shell
+flutter packages pub run build_runner build
+```
+- **Icons Generator
+```shell
+dart run flutter_launcher_icons:main -f flutter_launcher_icons*
+```
 
 
-## Project Structure
+
+## The Project Structure
 
 <details>   
    
@@ -102,7 +128,7 @@ The feature directory organizes code related to a specific part of the app. Here
     - **`remote/`**: For remote data sources (e.g., APIs).
 
 - **`features/your_feature/domain/`**:
-  Defines core business logic and data models.
+  Defines Specific business logic and data models related to the feature.
   - **`entities/`**: Contains data models or value objects.
   - **`i_repositories/`**: Interfaces for repositories.
 
@@ -113,37 +139,12 @@ The feature directory organizes code related to a specific part of the app. Here
 
 ### Summary
 
-- **`application/`**: Business logic and services.
+- **`application/`**: Addational Logic For the ui & Validation.
 - **`data/`**: Data handling (local and remote).
 - **`domain/`**: Core Domain business logic and entities.
 - **`presentation/`**: User interface and state management.
 </details>
 
-# Get Started
-- **Run Development Environment**:
-```shell
-  flutter run --flavor dev -t lib/main/dev.dart
-```
-- **Run Staging Environment**:
-```shell
-  flutter run --flavor staging -t lib/main/staging.dart
-```
-- **Run Production Environment**:
-```shell
-  flutter run --flavor production -t lib/main/production.dart
-```
-- **DI Generator**:
-```shell
-flutter packages pub run build_runner build
-```
-- **Icons Generator
-```shell
-dart run flutter_launcher_icons:main -f flutter_launcher_icons*
-```
-
-<!-- dart run flutter_launcher_icons:main -f flutter_launcher_icons* -->
-
 
 
 By: [Reham Ahmed](https://www.linkedin.com/in/rehamahmedibrahim/)
-

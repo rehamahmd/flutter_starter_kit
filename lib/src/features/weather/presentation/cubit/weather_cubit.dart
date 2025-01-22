@@ -14,10 +14,7 @@ class WeatherCubit extends Cubit<WeatherState> {
     emit(WeatherLoading());
     final result = await _weatherService.getCityWeatherByDay(cityId, day);
     result.fold(
-      (error) {
-        Logger.debug(error);
-        emit(WeatherError(error));
-      },
+      (error) => emit(WeatherError(error)),
       (data) => emit(WeatherLoaded(data.first)),
     );
   }

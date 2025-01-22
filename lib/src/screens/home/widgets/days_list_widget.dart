@@ -14,7 +14,7 @@ class DaysListWidget extends StatelessWidget {
       DateTime.now().add(Duration(days: 2)),
     ];
     return SizedBox(
-      height: 120.h,
+      height: 130.h,
       child: ListView(
         scrollDirection: Axis.horizontal,
         children: [
@@ -25,7 +25,7 @@ class DaysListWidget extends StatelessWidget {
                 padding: EdgeInsetsDirectional.symmetric(horizontal: 15.w, vertical: 6.h),
                 child: Container(
                   constraints: BoxConstraints(minWidth: 320.w),
-                  height: 120.h,
+                  height: 130.h,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12.h),
                     color: AppColors.whiteForeground,

@@ -30,6 +30,11 @@ class TextStyleImp {
       fontWeight: FontWeight.bold,
       color: Colors.black,
     ),
+
+    AppTextStyle.bold16: TextStyle(
+      fontSize: 16.sp,
+      fontWeight: FontWeight.bold,
+    ),
     AppTextStyle.bold16Royal: TextStyle(
       fontSize: 16.sp,
       fontWeight: FontWeight.bold,
